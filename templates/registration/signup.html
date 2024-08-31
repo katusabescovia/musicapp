@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container vh-100 d-flex align-items-center justify-content-center">
+        <div class="row w-100">
+            <!-- Left side -->
+            <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center bg-light p-4">
+                <h1 class="text-center">Welcome to <br> MUSIC APP</h1>
+                <p class="text-center">"App slogan"</p>
+                <div class="text-center">
+                    <span class="star-icon">&#9733;</span>
+                </div>
+                <h3 class="text-center">MUSIC APP</h3>
+            </div>
+
+            <!-- Right side -->
+            <div class="col-md-6 d-flex flex-column align-items-center justify-content-center p-4 py-5 my-4">
+                <div class="login-form w-100">
+                    <h2 class="text-info text-center">Welcome</h2>
+                    <p class="text-center">Login to your account to continue</p>
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="form-group d-flex flex-column">
+                            <label for="username">Username</label>
+                            {{ form.username }}
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="email">Email</label>
+                            {{ form.email }}
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="profile_pic">Profile Picture</label>
+                            {{ form.profile_pic }}
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="password1">Password</label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="password2">Confirm Password</label>
+                            {{ form.password2 }}
+                        </div>
+                        <div class="form-group d-flex flex-column">
+                            <label for="bio">Bio</label>
+                            {{ form.bio }}
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Signup</button>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Already have an account? <a href="{% url 'login' %}" class="text-info">Login</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
