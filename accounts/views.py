@@ -2,6 +2,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import CustomUserCreationForm
+from django.contrib.auth.models import auth
 from .forms import *
 from django.contrib.auth.decorators import login_required
 
@@ -11,6 +12,11 @@ class SignUpView(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'registration/signup.html'
+
+@login_required
+def logout(request):
+    auth.logout(request)
+    return redirect("login")
 
 @login_required
 def edit_profile(request):
