@@ -15,7 +15,7 @@
     <div class="container d-flex align-items-center justify-content-center login-containe my-2" style="height: 80%;">
         <div class="row w-100">
             <!-- Left side -->
-            <div class="col-md-6  d-none d-md-flex flex-column align-items-center justify-content-center bg-primary text-white rounded-left" style="width: 60%;">
+            <div class="col-md-6  d-none d-md-flex flex-column align-items-center justify-content-center text-white rounded-left" style="width: 60%; background-color: #37a3c4;">
                 <h1 class="text-center">Welcome to  MUSIC APP</h1>
                 <p class="text-center">"Your gateway to unlimited music"</p>
                 <div class="text-center">
@@ -27,7 +27,7 @@
             <!-- Right side -->
             <div class="col-md-6  d-flex flex-column align-items-center justify-content-center bg-white rounded-right shadow-sm" style="width: 40%;" >
                 <div class="w-100">
-                    <h2 class="text-center text-primary">Signup</h2>
+                    <h2 class="text-center">Signup</h2>
                     <p class="text-center text-muted mb-2">Create your account to get started</p>
                     <form method="post" class="mt-2 d-flex flex-column align-items-center">
                         {% csrf_token %}
@@ -65,7 +65,7 @@
                             {{ form.bio }}
                             {% comment %} <small class="form-text text-muted">{{ form.bio.help_text }}</small> {% endcomment %}
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block rounded-pill" style="width: 25%;">Signup</button>
+                        <button type="submit" class="btn-lg btn-block" style="width: 25%; background-color: #37a3c4; border: none;">Signup</button>
                     </form>
                     <div class="text-center mt-2">
                         <p class="text-muted mb-2">Already have an account? <a href="{% url 'login' %}" class="text-primary">Login</a></p>
