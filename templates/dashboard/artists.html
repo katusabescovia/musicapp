@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+        .category {
+            margin-bottom: 40px;
+        }
+        .category h2 {
+            margin-bottom: 20px;
+        }
+        .artist-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 16px;
+            text-align: center;
+            display: inline-block;
+            width: 200px;
+        }
+        .artist-card img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .artist-card h3 {
+            margin: 16px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Artists</h1>
+    {% for category, artists in artists_data.items %}
+        <div class="category">
+            <h2>{{ category }}</h2>
+            <div>
+                {% for artist in artists %}
+                    <div class="artist-card">
+                        <img src="{{ artist.image_url }}" alt="{{ artist.name }}">
+                        <h3>{{ artist.name }}</h3>
+                        <a href="{% url 'artist_detail' artist.id %}">View Details</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</body>
+</html>

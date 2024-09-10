@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts",  # new
     "profile_app",
+    "dashboard_app",
+    "django_filters",
 ]
 
 
@@ -129,9 +131,12 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "accounts.CustomUser"  # new
 
-LOGIN_REDIRECT_URL = "profile"
-LOGOUT_REDIRECT_URL = "profile"
+LOGIN_REDIRECT_URL = "dashboard"
+LOGOUT_REDIRECT_URL = "dashboard"
 
 # CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+SPOTIPY_CLIENT_ID = os.getenv('SPOTIPY_CLIENT_ID', '0690e4be447b478caaa0acd30050e91d')
+SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET', '1b1436c8af7843f980f3d8513c1830b3')
+SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8000/callback'

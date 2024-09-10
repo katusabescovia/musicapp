@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Dashboard</title>
+    <link rel="stylesheet" href="{% static 'musicapp/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        form {
+            margin-bottom: 40px;
+            background-color: #1f1f1f;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #fff;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            max-width: 500px;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #333;
+            color: #fff;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #f4b400;
+            outline: none;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #f4b400;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #fb8500;
+        }
+
+        .results-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .music-card {
+            width: 300px;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            text-align: center;
+            background-color: #1f1f1f;
+        }
+
+        .music-card h3 {
+            margin: 0;
+            font-size: 1.5em;
+            color: #fff;
+        }
+
+        .music-card p {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .music-card a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f4b400;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .music-card a:hover {
+            background-color: #fb8500;
+        }
+
+        p.no-results {
+            color: #999;
+            font-size: 1.2em;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #1f1f1f;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar h4 {
+            color: #fff;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: #333;
+        }
+
+        .sidebar .active {
+            background-color: #f4b400;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 20px;
+        }
+
+        /* Profile picture section */
+        .profile-container {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #1f1f1f;
+            padding: 5px 10px;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .profile-container .profile-info {
+            display: none; /* Hiding text to keep it small and clean */
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h4>Music</h4>
+        <a href="#" class="active">Home</a>
+        <a href="/trending">Trending</a>
+        <a href="#">New</a>
+        <a href="/artists">Artists</a>
+        <a href="/videos">Watch Video</a>
+        <a href="/profile">My Profile</a>
+
+
+    </div>
+
+    <!-- Profile picture section moved to the top right corner -->
+    <a href="{% url 'profile' %}">
+        <div class="profile-container">
+            {% if user.profile_pic %}
+            <img
+                class="img-fluid rounded-circle"
+                src="{{ user.profile_pic.url }}"
+                alt="profile-image"
+            />
+            {% else %}
+            <img
+                class="img-fluid rounded-circle"
+                src="{% static 'images/profile.png' %}"
+                alt="profile-image"
+            />
+            {% endif %}
+        </div>
+    </a>
+
+    <div class="main-content">
+        <div class="container">
+            <h4>Music Search Dashboard</h4>
+            <form method="get" action="{% url 'dashboard' %}">
+                <div class="form-group">
+                    <label for="artist_name">Search by Artist:</label>
+                    <input type="text" name="artist_name" id="artist_name" value="{{ request.GET.artist_name }}" placeholder="Enter artist name">
+                </div>
+                <div class="form-group">
+                    <label for="category">Search by Category:</label>
+                    <input type="text" name="category" id="category" value="{{ request.GET.category }}" placeholder="Enter category">
+                </div>
+                <div class="form-group">
+                    <label for="country">Search by Country:</label>
+                    <input type="text" name="country" id="country" value="{{ request.GET.country }}" placeholder="Enter country">
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Search">
+                </div>
+            </form>
+
+            {% if results %}
+                <h2>Results</h2>
+                <div class="results-container">
+                    {% for item in results %}
+                        <div class="music-card" style="background-image: url('{{ item.album_image_url }}');">
+                            <h3>{{ item.name }}</h3>
+                            <p>Artist: <a href="{% url 'artist_profile' item.artist_id %}">{{ item.artist_name }}</a></p>
+                            <p>Album: {{ item.album_name }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-results">No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
