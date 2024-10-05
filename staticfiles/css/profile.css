@@ -1,0 +1,94 @@
+.profile-container {
+  background: rgba(0,
+      0,
+      0,
+      0.8)!important;
+  /* Semi-transparent black background */
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  height: 100vh;
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid skyblue;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-header-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  /* Space between button and username */
+}
+
+.profile-header h2 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.profile-header p {
+  font-size: 18px;
+  color: #b3b3b3;
+  margin: 5px 0 20px;
+}
+
+.edit-btn {
+  background-color: skyblue;
+}
+
+.profile-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  background-color: #282828;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+  height: 150px;
+  transition: transform 0.3s;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+}
+
+.profile-card i {
+  font-size: 36px;
+  color: skyblue;
+  margin-bottom: 10px;
+}
+
+.profile-card h3 {
+  margin: 10px 0 0 0;
+  font-size: 18px;
+  color: #e0e0e0;
+}
+
+.profile-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.profile-card a:hover {
+  color: skyblue;
+}

@@ -1,0 +1,175 @@
+/* Library.css */
+
+.library-page {
+    padding: 20px;
+    background-color: black
+    ;
+  }
+
+  h2{
+    color: white;
+    /* margin-bottom: 20px; */
+  }
+  
+  .header {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f4b400;
+  }
+  
+  .music-icon {
+    font-size: 24px; /* Adjust the size as needed */
+    color: black; /* Example color for the icon */
+    margin-right:800px ;
+  }
+  
+  .now-playing {
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    /* background-color: white; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .now-playing-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .album-cover {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+  }
+  
+  .track-info {
+    flex-grow: 1;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .control-button {
+    padding: 10px 15px;
+    background-color: #f4b400;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .control-button:hover {
+    background-color: #f4b400;
+  }
+  
+  .playlist {
+    margin-top: 20px;
+  }
+  
+  .playlist-carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 10px;
+    background-color:#f4b400;
+  }
+  
+  .playlist-item {
+    flex: 0 0 200px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    
+  }
+  
+  .playlist-item img {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .playlist-controls {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 5px;
+    color: black;
+  }
+  
+  .playlist-control-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: black;
+  }
+  
+  .private-playlists {
+    margin-top: 20px;
+  }
+  
+  .playlist-folder {
+    margin-bottom: 15px;
+  }
+  
+  .playlist-tracks {
+    padding-left: 20px;
+  }
+  
+  .add-to-playlist-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    width: 30%;
+    height: 50%;
+  }
+  
+  .add-to-playlist-popup button {
+   background-color: #f4b400;
+  }
+  
+  .add-to-playlist-popup input {
+    border-color: #f4b400;
+    height:20px ;
+   }
+  
+   .add-to-playlist-popup button:hover {
+    background-color: #f4b400;
+   }
+  
+  .popup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+   
+  }
+  
+  .search-bar {
+    padding: 8px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 200px; /* Adjust as needed */
+  }
+  
+  
+  
