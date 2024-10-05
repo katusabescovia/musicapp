@@ -161,10 +161,11 @@
                     </audio>
                 </div>
                 <div class="actions">
-                    <form method="POST" action="{% url 'add_to_playlist' track.id %}">
+                    <!-- <form method="POST" action="{% url 'add_to_playlist' track.id %}">
                         {% csrf_token %}
                         <button type="submit">Add to Playlist</button>
-                    </form>
+                    </form> -->
+                    <a href="http://localhost:3000/playlist"><button type="submit">Add to Playlist</button></a> 
                 </div>
             </div>
             {% empty %}

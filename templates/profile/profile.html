@@ -19,21 +19,21 @@
     {% if user.is_authenticated %}
         <header>
             <nav class="nav justify-content-between my-3 px-3">
-                <a class="nav-link btn btn-dark" href="#" aria-current="page">
+                <a class="nav-link btn btn" href="{% url 'dashboard' %}" aria-current="page" style="color: azure; background-color: #f4b400;">
                     <i class="fa fa-home"></i>
-                    <span style="color: azure;">Home</span>
+                    <span style="color: black;">Home</span>
                 </a>
 
-                <a class="nav-link btn btn-danger" href="{% url 'logout' %}">
+                <a class="nav-link btn btn" href="{% url 'logout' %}" style="color: azure; background-color: #f4b400;">
                     <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
-                    <span style="color: azure;">Logout</span>
+                    <span style="color: black; background-color: #f4b400;">Logout</span>
                 </a>
             </nav>
 
             <center>
                 <div
-                    class="alert alert-success alert-dismissible fade show w-50"
-                    role="alert"
+                    class="alert alert-success alert-dismissible"
+                    role="alert"  style="background-color: #f4b400; width: 500px;"
                 >
                     <strong>Welcome {{user}}!</strong> You can go ahead and
                     select your favourite music.
@@ -66,8 +66,8 @@
                         {% endif %}
                     </div>
 
-                    <div class="profile-header-content">
-                        <a href="{% url 'edit_profile'%}" class="btn btn-primary"
+                    <div class="profile-header-content" >
+                        <a href="{% url 'edit_profile'%}" class="btn btn-primary" style="background-color:#f4b400; color: black;"
                             >Edit Profile</a
                         >
                     </div>
@@ -81,25 +81,25 @@
                     </div>
                 </div>
                 <div class="profile-content">
-                    <div class="profile-card">
+                    <div class="profile-card" style="background-color: black;">
                         <a href="{% url 'downloads' %}">
                             <i class="fas fa-download"></i>
                             <h3>Downloads</h3>
                         </a>
                     </div>
-                    <div class="profile-card">
+                    <div class="profile-card" style="background-color: black;">
                         <a href="{% url 'albums' %}">
                             <i class="fas fa-music"></i>
                             <h3>Albums</h3>
                         </a>
                     </div>
-                    <div class="profile-card">
+                    <div class="profile-card" style="background-color: black;">
                         <a href="{% url 'playlists' %}">
                             <i class="fas fa-list"></i>
                             <h3>Playlists</h3>
                         </a>
                     </div>
-                    <div class="profile-card">
+                    <div class="profile-card" style="background-color: black;">
                         <a href="{% url 'favorites' %}">
                             <i class="fas fa-heart"></i>
                             <h3>Favorites</h3>

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import artist_profile_view, artists_view, artist_detail_view, track_detail_view, add_to_playlist, trending_music, video_list, dashboard_view
+from .views import artist_profile_view, artists_view, artist_detail_view, track_detail_view, add_to_playlist, trending_music, video_list, dashboard_view, PlaylistView
 from django.contrib.auth.views import LogoutView
 from . import views
 urlpatterns = [
@@ -11,4 +11,5 @@ urlpatterns = [
     path('add_to_playlist/<str:track_id>/', add_to_playlist, name='add_to_playlist'),
     path('trending/', trending_music, name='trending_music'),
     path('videos/', video_list, name='video_list'),
+    path('playlist/', PlaylistView.as_view(), name='playlist'),
 ]

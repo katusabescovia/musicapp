@@ -32,6 +32,16 @@
         .artist-card h3 {
             margin: 16px 0;
         }
+        .parser{
+            margin-top: 16px;
+            padding: 8px 16px;
+            background-color: #f4b400;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            border-color: #f4b400;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +54,8 @@
                     <div class="artist-card">
                         <img src="{{ artist.image_url }}" alt="{{ artist.name }}">
                         <h3>{{ artist.name }}</h3>
-                        <a href="{% url 'artist_detail' artist.id %}">View Details</a>
+                       
+                       <a href="{% url 'artist_detail' artist.id %}"><button class="parser">view details</button></a>
                     </div>
                 {% endfor %}
             </div>

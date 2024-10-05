@@ -1,5 +1,5 @@
 body {
-    background-color: #efe5e5;
+    background-color: black;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -9,12 +9,14 @@ body {
 
 }
 
+
+
 .login-container {
     display: flex;
     margin-top: 45px;
     width: 70%;
     height: 50%;
-    border: 1px solid red;
+    border: 1px solid #f4b400;
     background-color: white;
     /* height: auto; */
     border-radius: 10px;
@@ -23,7 +25,7 @@ body {
 }
 
 .login-side {
-    background-color: #37a3c4;
+    background-color: #f4b400;
     color: white;
     width: 40%;
     height: 100%;
@@ -35,13 +37,17 @@ body {
 }
 
 .login-side .star-icon {
-    font-size: 150px;
+    font-size: 300px;
 }
 
 .login-side h3 {
-    color: black;
+    color: white;
     margin-top: 10px;
     font-size: 24px;
+}
+
+.login-form h2{
+    color: black;
 }
 
 .login-form-side {
@@ -59,7 +65,7 @@ body {
 }
 
 h2.text-info {
-    color: #37a3c4;
+    color: #f4b400;
     font-size: 32px;
     font-weight: bold;
 }
@@ -86,7 +92,7 @@ p.text-center {
 }
 
 .form-control:focus {
-    border-color: #37a3c4;
+    border-color: #f4b400;
 }
 
 .form-control::placeholder {
@@ -111,30 +117,30 @@ p.text-center {
 
     left: 10px;
     font-size: 12px;
-    color: #37a3c4;
+    color: #f4b400;
     background-color: #fff;
     padding: 0 5px;
 }
 
 .btn-info {
-    background-color: #37a3c4;
-    border-color: #37a3c4;
+    background-color: #f4b400;
+    border-color: #f4b400;
     border-radius: 20px;
     padding: 10px 20px;
     width: 100%;
 }
 
 .btn-info:hover {
-    background-color: #2a809c;
+    background-color: #f4b400;
 }
 
 .text-info {
-    color: #37a3c4;
+    color: #f4b400;
 }
 
 .text-right a,
 .text-center a {
-    color: #37a3c4;
+    color: #f4b400;
     text-decoration: none;
 }
 
@@ -170,7 +176,7 @@ label {
 
 .my_inputs strong {
     font-size: 0.75rem;
-    color: #818CF8;
+    color: #f4b400;
     font-weight: 700;
     position: relative;
     top: 0.5rem;
@@ -181,7 +187,7 @@ label {
 
 .my_inputs strong {
     font-size: 0.75rem;
-    color: #818CF8;
+    color: #f4b400;
     font-weight: 700;
     position: relative;
     top: 0.5rem;
@@ -193,7 +199,7 @@ label {
 .my_inputs .username1 {
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 2px #818CF8 solid;
+    border: 2px #f4b400 solid;
     width: 300px;
     border-radius: 5px;
 }
@@ -203,7 +209,7 @@ label {
 #id_bio {
     padding: 11px 10px;
     font-size: 0.75rem;
-    border: 2px #818CF8 solid;
+    border: 2px #f4b400 solid;
     width: 300px;
     border-radius: 5px;
 }

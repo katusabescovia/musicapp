@@ -8,72 +8,135 @@
     <title>Signup Page</title>
     <link rel="stylesheet" href="{% static 'css/signup.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    
+    <style>
+        /* body{
+            background-color: black;
+        }
+        .text-center .star-icon{
+            font-size: 450px;
+         }
+         .text-center h3 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 24px;
+} */
+
+body {
+            background-color: black;
+        }
+
+        .login-container {
+            display: flex;
+            height: 100vh; /* Full height of the viewport */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .col-md-6 {
+            padding: 0;
+        }
+
+        .text-center .star-icon {
+            font-size: 150px; /* Adjusted size to fit better */
+        }
+
+        .text-center h3 {
+            color: black;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .my_inputs {
+            width: 100%;
+            max-width: 350px; /* Ensures a reasonable width */
+        }
+
+        .my_inputs strong {
+            color: #f4b400;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            max-width: 350px; /* Button matches form width */
+        }
+     </style>
 </head>
 
-<body class="bg-light">
-    <div class="container d-flex align-items-center justify-content-center login-containe my-2" style="height: 80%;">
+<body class="bg-dark">
+    <div class="container d-flex align-items-center justify-content-center login-container my-2" style="height: 80%;">
         <div class="row w-100">
             <!-- Left side -->
-            <div class="col-md-6  d-none d-md-flex flex-column align-items-center justify-content-center text-white rounded-left" style="width: 60%; background-color: #37a3c4;">
-                <h1 class="text-center">Welcome to  MUSIC APP</h1>
-                <p class="text-center">"Your gateway to unlimited music"</p>
+            <!-- <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-white rounded-left" style="background-color: #f4b400; color: black;">
+                <h1 class="text-center"style="color: #f4b400;">Welcome to MUSIC APP</h1>
+                <p class="text-center"style="color: #f4b400;">"Your gateway to unlimited music"</p>
+                <h3 class="text-center mt-4" style="color: #f4b400;">Join the Community</h3>
+            </div> -->
+
+            <div class="col-md-6 d-none d-md-flex flex-column align-items-center justify-content-center text-white rounded-left" style="background-color: #f4b400; color: black;">
                 <div class="text-center">
-                    <span class="star-icon display-4">&#9733;</span>
+                    <span class="star-icon">&#9733;</span>
+                    <h3>MUSIC APP</h3>
                 </div>
-                <h3 class="text-center mt-4">Join the Community</h3>
             </div>
 
             <!-- Right side -->
-            <div class="col-md-6  d-flex flex-column align-items-center justify-content-center bg-white rounded-right shadow-sm" style="width: 40%;" >
+            <div class="col-md-6 d-flex flex-column align-items-center justify-content-center bg-white rounded-right shadow-sm">
                 <div class="w-100">
                     <h2 class="text-center">Signup</h2>
                     <p class="text-center text-muted mb-2">Create your account to get started</p>
-                    <form method="post" class="mt-2 d-flex flex-column align-items-center">
+                    
+                    <form method="post" class="mt-2 d-flex flex-column align-items-center" enctype="multipart/form-data">
                         {% csrf_token %}
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <ul>
+                                    {% for field in form %}
+                                        {% for error in field.errors %}
+                                            <li>{{ field.label }}: {{ error }}</li>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        {% endif %}
                         <div class="form-group mb-2 my_inputs">
-                            <strong>{{ form.username.label_tag }}</strong>
-
+                            <strong><label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label></strong>
                             {{ form.username }}
-                            {% comment %} <small class="form-text text-muted">{{ form.username.help_text }}</small> {% endcomment %}
                         </div>
+
                         <div class="form-group mb-2 my_inputs">
-                            <strong>{{ form.email.label_tag }}</strong>
-                            
+                            <strong><label for="{{ form.email.id_for_label }}">{{ form.email.label }}</label></strong>
                             {{ form.email }}
-                            {% comment %} <small class="form-text text-muted">{{ form.email.help_text }}</small> {% endcomment %}
                         </div>
+
                         <div class="form-group mb-2 my_inputs">
-                            <strong>{{ form.profile_pic.label_tag }}</strong>
-                            
+                            <strong><label for="{{ form.profile_pic.id_for_label }}">{{ form.profile_pic.label }}</label></strong>
                             {{ form.profile_pic }}
-                            {% comment %} <small class="form-text text-muted">{{ form.profile_pic.help_text }}</small> {% endcomment %}
                         </div>
+
                         <div class="form-group mb-2 my_inputs">
-                            <strong><label for="password1" class="font-weight-bold">Password:</label></strong>
-                            
+                            <strong><label for="{{ form.password1.id_for_label }}">Password</label></strong>
                             {{ form.password1 }}
                         </div>
+
                         <div class="form-group mb-2 my_inputs">
-                            <strong><label for="password2" class="font-weight-bold">Confirm Password:</label></strong>
+                            <strong><label for="{{ form.password2.id_for_label }}">Confirm Password</label></strong>
                             {{ form.password2 }}
                         </div>
+
                         <div class="form-group mb-2 my_inputs">
-                            <strong>{{ form.bio.label_tag }}</strong>
-                            
-                            
+                            <strong><label for="{{ form.bio.id_for_label }}">{{ form.bio.label }}</label></strong>
                             {{ form.bio }}
-                            {% comment %} <small class="form-text text-muted">{{ form.bio.help_text }}</small> {% endcomment %}
                         </div>
-                        <button type="submit" class="btn-lg btn-block" style="width: 25%; background-color: #37a3c4; border: none;">Signup</button>
+
+                        <button type="submit" class="btn-lg btn-block" style="width: 25%; background-color:#f4b400; border: none;">Signup</button>
                     </form>
+                    
                     <div class="text-center mt-2">
-                        <p class="text-muted mb-2">Already have an account? <a href="{% url 'login' %}" class="text-primary">Login</a></p>
+                        <p class="text-muted mb-2" style="color: #f4b400;">Already have an account? <a href="{% url 'login' %}" class="text-primary" >Login</a></p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </body>
-
 </html>

@@ -42,12 +42,18 @@ INSTALLED_APPS = [
     "profile_app",
     "dashboard_app",
     "django_filters",
+    "django.contrib.humanize",
+    "rest_framework",
+    'corsheaders',
+    
 ]
 
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -121,8 +127,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
-STATICFILES_DIRS = [BASE_DIR / "static"]
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # This should point to your Django app’s static files
+    BASE_DIR / "static/react/build",# This should point to your react app’s static files
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -140,3 +151,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 SPOTIPY_CLIENT_ID = os.getenv('SPOTIPY_CLIENT_ID', '0690e4be447b478caaa0acd30050e91d')
 SPOTIPY_CLIENT_SECRET = os.getenv('SPOTIPY_CLIENT_SECRET', '1b1436c8af7843f980f3d8513c1830b3')
 SPOTIPY_REDIRECT_URI = 'http://127.0.0.1:8000/callback'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",  # Allow your React app to make requests
+]

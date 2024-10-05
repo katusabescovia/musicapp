@@ -42,7 +42,7 @@
         }
         .artist-info p {
             margin: 5px 0;
-            color: #666;
+            color: white;
         }
         .like-share {
             margin: 20px 0;
@@ -95,13 +95,28 @@
             background-color: #121212;
             color: #fff;
             border: none;
-            padding: 5px 10px;
+            padding: 2px 4px;
             border-radius: 5px;
             cursor: pointer;
         }
         .track-controls form {
             margin: 0;
         }
+
+     
+        .track-list button{
+            margin-top: 16px;
+            padding: 8px 16px;
+            background-color: #f4b400;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            border-color: #f4b400;
+         
+        }
+
+
         
     </style>
 </head>
@@ -152,14 +167,16 @@
                             <p>No preview available</p>
                         {% endif %}
                         <a href="{% url 'track_detail' track.id %}">
-                            <button>View Details</button>
+                            <button class="viewer">View Details</button>
                         </a>
-                        {% if user.is_authenticated %}
+
+                        <a href="http://localhost:3000/playlist"><button type="submit" class="submition">Add to Playlist</button></a> 
+                        <!-- {% if user.is_authenticated %}
                             <form action="{% url 'add_to_playlist' track.id %}" method="post">
                                 {% csrf_token %}
-                                <button type="submit">Add to Playlist</button>
+                                
                             </form>
-                        {% endif %}
+                        {% endif %} -->
                     </div>
                 </li>
             {% endfor %}

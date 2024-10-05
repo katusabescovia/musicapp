@@ -20,6 +20,12 @@ from django.shortcuts import render
 from spotipy import Spotify
 from spotipy.oauth2 import SpotifyClientCredentials
 
+from django.views.generic import TemplateView
+
+class PlaylistView(TemplateView):
+    template_name = 'dashboard/react_playlist.html'
+
+
 def artist_profile_view(request, artist_id):
     sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
         client_id='0690e4be447b478caaa0acd30050e91d',

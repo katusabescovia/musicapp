@@ -43,11 +43,11 @@
         .track-details h1 {
             margin: 0;
             font-size: 2em;
-            color: #333;
+            color: white;
         }
         .track-details p {
             margin: 10px 0;
-            color: #666;
+            color: white;
         }
         .track-controls {
             margin-top: 40px;
@@ -76,6 +76,17 @@
             background-color: #121212;
             color: #fff;
         }
+
+         .submit{
+            margin-top: 16px;
+            padding: 8px 16px;
+            background-color: #f4b400;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            border-color: #f4b400;
+        }
     </style>
 </head>
 <body>
@@ -98,12 +109,15 @@
             {% else %}
                 <p>No preview available</p>
             {% endif %}
-            {% if user.is_authenticated %}
+
+
+            <a href="http://localhost:3000/playlist"><button type="submit" class="submit">Add to Playlist</button></a> 
+            <!-- {% if user.is_authenticated %}
                 <form action="{% url 'add_to_playlist' track.id %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Add to Playlist</button>
                 </form>
-            {% endif %}
+            {% endif %} -->
             <!-- <a href="{{ track.external_urls.spotify }}" target="_blank">
                 <button>Open in Spotify</button>
             </a> -->

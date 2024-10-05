@@ -1,0 +1,83 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+  }
+  
+  /* Header */
+  header {
+    background: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  /* Navigation */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background: #444;
+    color: #fff;
+  }
+  
+  nav a {
+    color: #fff;
+    padding: 0.75rem;
+    text-decoration: none;
+  }
+  
+  /* Main content area */
+  main {
+    padding: 2rem 0;
+  }
+  
+  /* Playlist and search results */
+  .playlist-item, .search-result {
+    background: #f4f4f4;
+    margin: 0.75rem 0;
+    padding: 1rem;
+    border-radius: 5px;
+  }
+  
+  /* Buttons */
+  button {
+    background: #333;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #555;
+  }
+  
+  @media (max-width: 768px) {
+    .now-playing,
+    .playlist-item,
+    .add-to-playlist-popup {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .album-cover {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .playlist-carousel {
+      flex-direction: column;
+    }
+  }
+  
